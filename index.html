@@ -10,9 +10,10 @@
     }
     </style>
     <link rel="icon" href="leave.png">
+    <style type="text/css" src="http://fonts.googleapis.com/earlyaccess/cwtexhei.css"></style>
     <style type="text/css">
+    html {cursor: url(leave.png), default;}
     body.c7 {
-        cursor: url(leave.png), default;
         background: #8EF23C
     }
     
@@ -34,6 +35,7 @@
     }
     
     img.c2 {
+        vertical-align: bottom;
         width: 100%;
         height: auto
     }
@@ -49,25 +51,25 @@
         background: url(tree.jpg);
         background-position: center top;
         background-repeat: repeat-y;
+        background-size: 100% auto;
         min-height: 587px;
     }
     
     div.c9 {
         background: url(tree2.jpg);
-        background-size: auto 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 709px;
+        background-position: center top;
+        background-repeat:no-repeat;
+        background-size: 100% auto;
     }
     
     div.c10 {
-        height: 200px;
+        margin-top: 20px;
+        background: rgba(220, 220, 220, 0.5);
+        font-family: 'cwTeXHei', sans-serif;
+        overflow: auto;
     }
-    
     div.c11 {
-        height: 587px;
-        position:relative;
-        top: 50%
+
     }
     </style>
 </head>
@@ -75,24 +77,64 @@
 <body class="c7">
     <div class="c3">
         <img id="cover" class="c1" src="planet.jpg">
-        <img src="planet-text.jpg" class="c2"></div>
-    <div class="c8">
-        <div class="c10"></div>
-        <div class="c11"></div>
+        <img src="planet-text.jpg" class="c2">
     </div>
-    <div class="c9"></div>
-    <h1 class=" c4 " title="Charlie Wang ">My Blog</h1>
-    <h2 class="c5 ">測試</h2>
-    <p class="c6 ">hello world!</p>
-    <h3>
+    <div class="c8" id="tree">
+        <div class="c10">
+            <h1>今天吃甚麼</h1>
+            <hr>
+            <p>2017/4/16 23:34</p>
+            <p>今天吃學餐。</p>
+        </div>
+        <div class="c10">
+            <h1>今天吃甚麼</h1>
+            <hr>
+            <p>2017/4/16 23:34</p>
+            <p>今天吃學餐。</p>
+            <p>今天吃學餐。</p>
+            <p>今天吃學餐。</p>
+        </div>
+        <div class="c10">
+            <h1>今天吃甚麼</h1>
+            <hr>
+            <p>2017/4/16 23:34</p>
+            <p>今天吃學餐。</p>
+            <p>今天吃學餐。</p>
+            <p>今天吃學餐。</p>
+            <p>今天吃學餐。</p>
+        </div>
+        <div class="c10">
+            <h1>今天吃甚麼</h1>
+            <hr>
+            <p>2017/4/16 23:34</p>
+            <p>今天吃學餐。</p>
+        </div>
+        <div class="c11" id="tree_root"></div>
+    </div>
+    <div class="c9" id="tree_bottom"></div>
+    <div><h2 class="c5 ">測試</h2>
+        <p class="c6 ">hello world!</p>
+        <h3>
       <a target="_new " href="https://www.000webhost.com/members/website/list ">webhost管理</a></h3>
-    <p>redirect:
-        <input type="text " onkeydown="if(event.keyCode==1 3){this.value='https:///rawgit.com/moonyoulove/myblog/' +this.value+ '/index.html'} ">
-    </p>
-    <div>Icons made by
-        <a href="http://www.flaticon.com/authors/baianat " title="Baianat ">Baianat</a>from
-        <a href="http://www.flaticon.com " title="Flaticon ">www.flaticon.com</a>is licensed by
-        <a href="http://creativecommons.org/licenses/by/3.0/ " title="Creative Commons BY 3.0 " target="_blank ">CC 3.0 BY</a></div>
+        <p>redirect:
+            <input type="text " onkeydown="if(event.keyCode==1 3){this.value='https:///rawgit.com/moonyoulove/myblog/' +this.value+ '/index.html'} ">
+        </p>
+        <div>Icons made by
+            <a href="http://www.flaticon.com/authors/baianat " title="Baianat ">Baianat</a>from
+            <a href="http://www.flaticon.com " title="Flaticon ">www.flaticon.com</a>is licensed by
+            <a href="http://creativecommons.org/licenses/by/3.0/ " title="Creative Commons BY 3.0 " target="_blank ">CC 3.0 BY</a></div></div>
+    <script type="text/javascript">
+    var tree = document.getElementById("tree");
+    var tree_root = document.getElementById("tree_root");
+    var tree_bottom = document.getElementById("tree_bottom");
+    var tree_height = tree.offsetHeight;
+    var tree_width = tree.offsetWidth;
+    var one_height = 587*tree_width/1366;
+    //tree.style.height = Math.ceil(tree.offsetHeight / 587) * 587 + "px";
+    //alert((1-tree_height/(Math.ceil(tree_height / 587) * 587))*100);
+    tree_root.style.paddingTop = ((Math.ceil(tree_height / one_height) * one_height)-tree_height)/tree_width*100 + "%";
+    tree_bottom.style.paddingTop = 709*tree_width/1366/tree_width*100 + "%";
+    </script>
 </body>
 
 </html>
